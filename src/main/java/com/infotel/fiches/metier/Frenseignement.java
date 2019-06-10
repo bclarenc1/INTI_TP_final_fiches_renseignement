@@ -1,6 +1,8 @@
 package com.infotel.fiches.metier;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
@@ -10,6 +12,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlTransient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,5 +36,14 @@ public abstract class Frenseignement implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idFiche;
+	
+	@ManyToOne
+	private Enfant enfant;
+	
+	@ManyToMany(mappedBy="frenseignement")
+	@JsonIgnore
+	@XmlTransient
+	private List<Etablissement> etablissement = new ArrayList<Etablissement>();
+	
 
 }
