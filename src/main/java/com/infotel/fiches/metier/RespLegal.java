@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,5 +25,8 @@ public class RespLegal implements Serializable {
 	private int idResp;
 	private String nomResp;
 	private String prenomResp;
+	
+	@OneToOne
+	private Login login;
 
 }

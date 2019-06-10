@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,5 +31,8 @@ public abstract class Etablissement implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idEta;
 	private String nomEta;
+	
+	@OneToOne
+	private Login login;
 
 }
