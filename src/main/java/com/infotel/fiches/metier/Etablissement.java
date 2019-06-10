@@ -18,6 +18,7 @@ import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,6 +33,7 @@ import lombok.Setter;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="TYPE_ETA")
 @DiscriminatorValue("Eta")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public abstract class Etablissement implements Serializable {
 	
 	@Id
@@ -45,6 +47,12 @@ public abstract class Etablissement implements Serializable {
 	@ManyToMany
 	@JsonIgnore
 	@XmlTransient
-	private List<Frenseignement> frenseignement = new ArrayList<Frenseignement>();
+	private List<Frenseignement> frenseignements = new ArrayList<Frenseignement>();
+
+	@Override
+	public String toString() {
+		return "Etablissement [idEta=" + idEta + ", nomEta=" + nomEta + ", login=" + login + ", frenseignements="
+				+ frenseignements + "]";
+	}
 
 }

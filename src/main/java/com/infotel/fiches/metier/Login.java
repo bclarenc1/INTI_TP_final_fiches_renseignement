@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +20,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Login implements Serializable {
 	
 	@Id
@@ -32,4 +35,17 @@ public class Login implements Serializable {
 	@OneToOne (mappedBy = "login")
 	private Etablissement etablissement;
 
+	@Override
+	public String toString() {
+		return "Login [idLogin=" + idLogin + ", nickname=" + nickname + ", password=" + password + ", resplegal="
+				+ resplegal + ", etablissement=" + etablissement + "]";
+	}
+
+	public Login(String nickname, String password) {
+		super();
+		this.nickname = nickname;
+		this.password = password;
+	}
+	
+	
 }
