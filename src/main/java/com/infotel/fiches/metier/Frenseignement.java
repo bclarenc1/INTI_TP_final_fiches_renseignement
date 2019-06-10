@@ -42,14 +42,14 @@ public abstract class Frenseignement implements Serializable {
 	@ManyToOne
 	private Enfant enfant;
 	
-	@ManyToMany(mappedBy="frenseignement")
+	@ManyToMany(mappedBy="frenseignements")
 	@JsonIgnore
 	@XmlTransient
-	private List<Etablissement> etablissement = new ArrayList<Etablissement>();
+	private List<Etablissement> etablissements = new ArrayList<Etablissement>();
 
 	@Override
 	public String toString() {
-		return "Frenseignement [idFiche=" + idFiche + ", enfant=" + enfant + ", etablissement=" + etablissement + "]";
+		return "Frenseignement [idFiche=" + idFiche + ", enfant=" + enfant + ", etablissements=" + etablissements + "]";
 	}
 
 }
