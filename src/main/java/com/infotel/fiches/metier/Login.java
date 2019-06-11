@@ -47,14 +47,18 @@ public class Login implements Serializable {
 		this.password = password;
 	}
 
-	public Login(String nickname, String password, RespLegal respLegal, Etablissement etablissement) {
-		super();
-		this.nickname = nickname;
-		this.password = password;
-		this.respLegal = respLegal;
-		this.etablissement = etablissement;
-	}
-
-	
+//	public Login(String nickname, String password, RespLegal respLegal) {
+//		super();
+//		this.nickname = nickname;
+//		this.password = password;
+//		this.respLegal = respLegal;
+//	}
+//
+//	public Login(String nickname, String password, Etablissement etablissement) {
+//		super();
+//		this.nickname = nickname;
+//		this.password = password;
+//		this.etablissement = etablissement;
+//	}
 	
 }

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.infotel.fiches.dao.ClubRepository;
 import com.infotel.fiches.dao.LoginRepository;
 import com.infotel.fiches.metier.Login;
 
@@ -25,47 +24,41 @@ public class LoginRestService implements IserviceLogin {
 	@RequestMapping(value = "/logins", method = RequestMethod.POST)
 	@Override
 	public void addLogin(@RequestBody Login l) {
-
 		loginRepository.save(l);
 	}
 
 	@RequestMapping(value = "/logins/{id}", method = RequestMethod.DELETE)
 	@Override
 	public void deleteLogin(@PathVariable int id) {
-		
 		loginRepository.deleteById(id);
 	}
 
 	@RequestMapping(value = "/logins/{id}", method = RequestMethod.GET)		
 	@Override
 	public Login getLogin(@PathVariable int id) {
-		
 		return loginRepository.getOne(id);
 	}
 
 	@RequestMapping(value = "/logins", method = RequestMethod.PUT)	
 	@Override
 	public void editLogin(@RequestBody Login l) {
-		
 		loginRepository.save(l);
 	}
 
 	@RequestMapping(value = "/logins", method = RequestMethod.GET)	
 	@Override
 	public List<Login> listLogins() {
-		
 		return loginRepository.findAll();
 	}
 
-	@RequestMapping(value = "/logins/connecter", method = RequestMethod.GET)	
+	@RequestMapping(value = "/logins/connexion", method = RequestMethod.GET)	
 	@Override
 	public void seConnecter(@RequestBody String nickname, @RequestBody String password) {
 		List<Login> logins = loginRepository.seConnecter(nickname, password);
 		if (logins == null) {
-			System.out.println("Connexion impossible, vérifiez le login et/ou le mdp");
-		}
-		else {
-			System.out.println("Vous êtes connecté");
+			System.out.println("Connexion impossible, vérifiez login et mdp.");
+		} else {
+			System.out.println("Connexion établie");
 		}
 	}
 
