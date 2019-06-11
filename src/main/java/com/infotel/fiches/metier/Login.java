@@ -30,15 +30,15 @@ public class Login implements Serializable {
 	private String password;
 	
 	@OneToOne (mappedBy = "login")
-	private RespLegal resplegal;
+	private RespLegal respLegal;
 	
 	@OneToOne (mappedBy = "login")
 	private Etablissement etablissement;
 
 	@Override
 	public String toString() {
-		return "Login [idLogin=" + idLogin + ", nickname=" + nickname + ", password=" + password + ", resplegal="
-				+ resplegal + ", etablissement=" + etablissement + "]";
+		return "Login [idLogin=" + idLogin + ", nickname=" + nickname + ", password=" + password + ", respLegal="
+				+ respLegal + ", etablissement=" + etablissement + "]";
 	}
 
 	public Login(String nickname, String password) {
