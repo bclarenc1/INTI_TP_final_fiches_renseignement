@@ -12,5 +12,5 @@ public interface IserviceLogin {
 	public void editLogin(Login l);
 	public List<Login> listLogins();
 
-	public void seConnecter(String login, String password);
+	public void seConnecter(String nickname, String password);
 }
