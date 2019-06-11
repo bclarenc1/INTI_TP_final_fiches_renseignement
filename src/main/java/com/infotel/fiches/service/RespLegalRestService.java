@@ -37,13 +37,13 @@ public class RespLegalRestService implements IserviceRespLegal {
 	}
 
 	@Override
-	@RequestMapping(value="/respLegals",method=RequestMethod.GET)
+	@RequestMapping(value="/respLegals/{id}",method=RequestMethod.GET)
 	public RespLegal getRespLegal(@PathVariable int id) {
 		return respLegalRepository.getOne(id);
 	}
 
 	@Override
-	@RequestMapping(value="/respLegals/{id}",method=RequestMethod.PUT)
+	@RequestMapping(value="/respLegals",method=RequestMethod.PUT)
 	public void editRespLegal(@RequestBody RespLegal r) {
 		respLegalRepository.save(r);
 	}

@@ -11,7 +11,8 @@ import com.infotel.fiches.metier.Login;
 public interface LoginRepository extends JpaRepository<Login, Integer> {
 
 	// (nickname,password) must be on one line of table login
-	@Query("select login from Login where login.nickname=:a INTERSECT"
-		 + "select login from Login where login.password=:b")
+//	@Query("select log from Login log where log.nickname=:a INTERSECT"
+//		 + "select log from Login log where log.password=:b")
+	@Query("select log from Login log")
 	public List<Login> seConnecter(@Param("a") String nickname, @Param("b") String password);
 }
