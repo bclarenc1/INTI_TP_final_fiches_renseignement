@@ -48,10 +48,20 @@ public class RespLegal implements Serializable {
 				+ login + ", enfants=" + enfants + "]";
 	}
 
-	public RespLegal(String nomResp, String prenomResp) {
+	public RespLegal(String prenomResp, String nomResp) {
 		super();
-		this.nomResp = nomResp;
 		this.prenomResp = prenomResp;
+		this.nomResp = nomResp;
 	}
+
+	public RespLegal(String prenomResp, String nomResp, Login login, List<Enfant> enfants) {
+		super();
+		this.prenomResp = prenomResp;
+		this.nomResp = nomResp;
+		this.login = login;
+		this.enfants = enfants;
+	}
+	
+	
 	
 }
