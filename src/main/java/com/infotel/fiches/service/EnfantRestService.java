@@ -52,7 +52,7 @@ public class EnfantRestService implements IserviceEnfant {
 
 	@Override
 	@RequestMapping(value="/enfants/modifRespLegal/{idEnf}/{idResp}",method=RequestMethod.GET)
-	public void modifierRespLegal(int idEnf, int idResp) {
+	public void modifierRespLegal(@PathVariable int idEnf, @PathVariable int idResp) {
 		enfantRepository.modifierRespLegal(idEnf, idResp);
 	}
 

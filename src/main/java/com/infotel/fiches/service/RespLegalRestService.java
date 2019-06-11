@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,13 +32,13 @@ public class RespLegalRestService implements IserviceRespLegal {
 
 	@Override
 	@RequestMapping(value="/respLegals/{id}",method=RequestMethod.DELETE)
-	public void deleteRespLegal(int id) {
+	public void deleteRespLegal(@PathVariable int id) {
 		respLegalRepository.deleteById(id);
 	}
 
 	@Override
 	@RequestMapping(value="/respLegals",method=RequestMethod.GET)
-	public RespLegal getRespLegal(int id) {
+	public RespLegal getRespLegal(@PathVariable int id) {
 		return respLegalRepository.getOne(id);
 	}
 
@@ -54,8 +55,8 @@ public class RespLegalRestService implements IserviceRespLegal {
 	}
 
 	@Override
-	@RequestMapping(value="/respLegals/senregistrer",method=RequestMethod.POST)
-	public void senregistrer(int idResp, Login login) {
+	@RequestMapping(value="/respLegals/senregistrer/{idResp}",method={RequestMethod.POST,RequestMethod.GET})
+	public void senregistrer(@PathVariable int idResp, @RequestBody Login login) {
 		loginRepository.save(login);
 		int idLogin = login.getIdLogin();
 		respLegalRepository.senregistrer(idResp, idLogin);

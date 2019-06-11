@@ -12,3 +12,4 @@ public interface RespLegalRepository extends JpaRepository<RespLegal, Integer> {
 	public void senregistrer(@Param("b")int idResp,@Param("a") int idLogin);
 
 }
+
