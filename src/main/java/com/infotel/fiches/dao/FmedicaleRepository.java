@@ -15,11 +15,8 @@ public interface FmedicaleRepository extends JpaRepository<Fmedicale, Integer> {
 	
 	@Transactional
 	@Modifying(clearAutomatically = true)
-	@Query("Select f from Frenseignement f")
-	public List<Frenseignement> attribuerFicheEnfant(@Param("b")int idFiche,@Param("a") int idEnf);
-
-//@Query("update Frenseignement set enfant_id_enf=:a where frenseignement.id_fiche=:b")
-//public void attribuerFicheEnfant(@Param("b")int idFiche,@Param("a") int idEnf);
+	@Query("update Frenseignement set enfant_idEnf=:a where idFiche=:b")
+	public void attribuerFicheEnfant(@Param("b")int idFiche,@Param("a") int idEnf);
 
 
 }

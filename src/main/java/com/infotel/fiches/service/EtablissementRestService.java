@@ -43,8 +43,8 @@ public class EtablissementRestService implements IserviceEtablissement {
 
 	@Override
 	public void consulterFiches() {
-		// TODO Auto-generated method stub
-
+		
+		etablissementRepository.consulterFiches();
 	}
 
 	@Override
