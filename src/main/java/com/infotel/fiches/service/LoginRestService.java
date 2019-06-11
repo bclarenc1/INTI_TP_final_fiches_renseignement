@@ -57,8 +57,13 @@ public class LoginRestService implements IserviceLogin {
 
 	@Override
 	public void seConnecter(String nickname, String password) {
-		
-
+		List<Login> logins = loginRepository.seConnecter(nickname, password);
+		if (logins == null) {
+			System.out.println("Connexion impossible, vérifiez le login et/ou le mdp");
+		}
+		else {
+			System.out.println("Vous êtes connecté");
+		}
 	}
 
 }
