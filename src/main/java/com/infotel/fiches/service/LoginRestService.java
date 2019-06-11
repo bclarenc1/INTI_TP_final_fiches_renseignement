@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,28 +24,28 @@ public class LoginRestService implements IserviceLogin {
 	
 	@RequestMapping(value = "/logins", method = RequestMethod.POST)
 	@Override
-	public void addLogin(Login l) {
+	public void addLogin(@RequestBody Login l) {
 
 		loginRepository.save(l);
 	}
 
 	@RequestMapping(value = "/logins/{id}", method = RequestMethod.DELETE)
 	@Override
-	public void deleteLogin(int id) {
+	public void deleteLogin(@PathVariable int id) {
 		
 		loginRepository.deleteById(id);
 	}
 
 	@RequestMapping(value = "/logins/{id}", method = RequestMethod.GET)		
 	@Override
-	public Login getLogin(int id) {
+	public Login getLogin(@PathVariable int id) {
 		
 		return loginRepository.getOne(id);
 	}
 
 	@RequestMapping(value = "/logins", method = RequestMethod.PUT)	
 	@Override
-	public void editLogin(Login l) {
+	public void editLogin(@RequestBody Login l) {
 		
 		loginRepository.save(l);
 	}
@@ -55,8 +57,9 @@ public class LoginRestService implements IserviceLogin {
 		return loginRepository.findAll();
 	}
 
+	@RequestMapping(value = "/logins/connecter", method = RequestMethod.GET)	
 	@Override
-	public void seConnecter(String nickname, String password) {
+	public void seConnecter(@RequestBody String nickname, @RequestBody String password) {
 		List<Login> logins = loginRepository.seConnecter(nickname, password);
 		if (logins == null) {
 			System.out.println("Connexion impossible, vérifiez le login et/ou le mdp");

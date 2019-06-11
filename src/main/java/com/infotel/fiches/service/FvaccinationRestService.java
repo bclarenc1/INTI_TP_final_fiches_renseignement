@@ -57,7 +57,7 @@ public class FvaccinationRestService implements IserviceFvaccination {
 
 	@RequestMapping(value = "/fvaccinations/{id}", method = {RequestMethod.POST, RequestMethod.GET})
 	@Override
-	public void attribuerFicheEnfant(Fvaccination f, int id) {
+	public void attribuerFicheEnfant(@RequestBody Fvaccination f, @PathVariable int id) {
 		fvaccinationRepository.save(f);
 		int idFiche = f.getIdFiche();
 		frenseignementRepository.attribuerFicheEnfant(idFiche, id);

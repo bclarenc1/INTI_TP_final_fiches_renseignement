@@ -56,7 +56,7 @@ public class FimageRestService implements IserviceFimage {
 	
 	@RequestMapping(value = "/fimages/{id}", method = {RequestMethod.POST, RequestMethod.GET})
 	@Override
-	public void attribuerFicheEnfant(Fimage f, int id) {
+	public void attribuerFicheEnfant(@RequestBody Fimage f, @PathVariable int id) {
 		fimageRepository.save(f);
 		int idFiche = f.getIdFiche();
 		frenseignementRepository.attribuerFicheEnfant(idFiche, id);

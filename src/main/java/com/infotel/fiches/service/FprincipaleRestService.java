@@ -56,7 +56,7 @@ public class FprincipaleRestService implements IserviceFprincipale {
 	
 	@RequestMapping(value = "/fprincipales/{id}", method = {RequestMethod.POST, RequestMethod.GET})
 	@Override
-	public void attribuerFicheEnfant(Fprincipale f, int id) {
+	public void attribuerFicheEnfant(@RequestBody Fprincipale f, @PathVariable int id) {
 		fprincipaleRepository.save(f);
 		int idFiche = f.getIdFiche();
 		frenseignementRepository.attribuerFicheEnfant(idFiche, id);

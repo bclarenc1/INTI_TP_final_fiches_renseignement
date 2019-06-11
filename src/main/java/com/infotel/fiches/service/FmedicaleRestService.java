@@ -57,11 +57,11 @@ public class FmedicaleRestService implements IserviceFmedicale {
 	
 	@RequestMapping(value = "/fmedicales/{id}", method = {RequestMethod.POST, RequestMethod.GET})
 	@Override
-	public void attribuerFicheEnfant(Fmedicale f, int id) {
+	public void attribuerFicheEnfant(@RequestBody Fmedicale f,@PathVariable int id) {
 		fmedicaleRepository.save(f);
 		int idFiche = f.getIdFiche();
 		frenseignementRepository.attribuerFicheEnfant(idFiche, id);	
 		
 	}
-
+	
 }
