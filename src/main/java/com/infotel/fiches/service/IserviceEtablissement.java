@@ -7,7 +7,7 @@ import com.infotel.fiches.metier.Etablissement;
 public interface IserviceEtablissement {
 
 	public void deleteEtablissement(int id);
-	public void editEtablissement(Etablissement e);
+	public void getEtablissement(int id);
 	public List<Etablissement> listEtablissements();
 
 	public void consulterFiches();
