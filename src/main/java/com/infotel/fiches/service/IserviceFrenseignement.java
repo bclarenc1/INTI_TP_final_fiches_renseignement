@@ -11,5 +11,5 @@ public interface IserviceFrenseignement {
 	public List<Frenseignement> listFrenseignements();
 	
 	public void attribuerFicheEnfant(int idFiche, int idEnf);
-	public boolean voirDemandeFiche(int idEta, int idFiche);
+	public boolean voirDemandeFiche(int idFiche, int idEta);
 }
