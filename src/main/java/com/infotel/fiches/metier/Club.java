@@ -30,6 +30,4 @@ public class Club extends Etablissement {
 		super();
 		this.discipline = discipline;
 	}
-	
 }
-
