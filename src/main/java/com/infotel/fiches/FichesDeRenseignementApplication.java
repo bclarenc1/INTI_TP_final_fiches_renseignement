@@ -52,7 +52,7 @@ public class FichesDeRenseignementApplication {
 	
 	
 	FamilleRepository dao5=ctx.getBean(FamilleRepository.class);
-    dao5.save(new Famille());
+    dao5.save(new Famille("Bruneau",null));
   
 	
 	FimageRepository dao6=ctx.getBean(FimageRepository.class);
