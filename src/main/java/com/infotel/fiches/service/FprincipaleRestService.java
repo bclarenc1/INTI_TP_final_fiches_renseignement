@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.infotel.fiches.dao.FprincipaleRepository;
+import com.infotel.fiches.dao.FrenseignementRepository;
 import com.infotel.fiches.metier.Fimage;
 import com.infotel.fiches.metier.Fprincipale;
 
@@ -21,13 +22,10 @@ public class FprincipaleRestService implements IserviceFprincipale {
 	@Autowired
 	private FprincipaleRepository fprincipaleRepository;
 	
-	@RequestMapping(value = "/fprincipales", method = RequestMethod.POST)			
-	@Override
-	public void addFprincipale(@RequestBody Fprincipale f) {
-		
-		fprincipaleRepository.save(f);
-	}
-
+	@Autowired
+	private FrenseignementRepository frenseignementRepository;
+	
+	
 	@RequestMapping(value = "/fprincipales/{id}", method = RequestMethod.DELETE)			
 	@Override
 	public void deleteFprincipale(@PathVariable int id) {
@@ -54,6 +52,15 @@ public class FprincipaleRestService implements IserviceFprincipale {
 	public List<Fprincipale> listFprincipales() {
 		
 		return fprincipaleRepository.findAll();
+	}
+	
+	@RequestMapping(value = "/fprincipales/{id}", method = {RequestMethod.POST, RequestMethod.GET})
+	@Override
+	public void attribuerFicheEnfant(Fprincipale f, int id) {
+		fprincipaleRepository.save(f);
+		int idFiche = f.getIdFiche();
+		frenseignementRepository.attribuerFicheEnfant(idFiche, id);
+			
 	}
 
 }

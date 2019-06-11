@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.infotel.fiches.dao.FrenseignementRepository;
 import com.infotel.fiches.dao.FvaccinationRepository;
+import com.infotel.fiches.metier.Fimage;
 import com.infotel.fiches.metier.Fmedicale;
 import com.infotel.fiches.metier.Fvaccination;
 
@@ -21,12 +23,9 @@ public class FvaccinationRestService implements IserviceFvaccination {
 	@Autowired
 	private FvaccinationRepository fvaccinationRepository;
 	
-	@RequestMapping(value = "/fvaccinations", method = RequestMethod.POST)			
-	@Override
-	public void addFvaccination(@RequestBody Fvaccination f) {
-		
-		fvaccinationRepository.save(f);
-	}
+	@Autowired
+	private FrenseignementRepository frenseignementRepository;
+	
 
 	@RequestMapping(value = "/fvaccinations/{id}", method = RequestMethod.DELETE)			
 	@Override
@@ -54,6 +53,15 @@ public class FvaccinationRestService implements IserviceFvaccination {
 	public List<Fvaccination> listFvaccinations() {
 		
 		return fvaccinationRepository.findAll();
+	}
+
+	@RequestMapping(value = "/fvaccinations/{id}", method = {RequestMethod.POST, RequestMethod.GET})
+	@Override
+	public void attribuerFicheEnfant(Fvaccination f, int id) {
+		fvaccinationRepository.save(f);
+		int idFiche = f.getIdFiche();
+		frenseignementRepository.attribuerFicheEnfant(idFiche, id);
+			
 	}
 
 }

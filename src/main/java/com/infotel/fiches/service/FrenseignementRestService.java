@@ -42,12 +42,7 @@ public class FrenseignementRestService implements IserviceFrenseignement {
 		
 		return frenseignementRepository.findAll();
 	}
-
-	@Override
-	public void attribuerFicheEnfant(int idFiche, int idEnf) {
-
-		
-	}
+	
 
 	@Override
 	public boolean voirDemandeFiche(int idEta, int idFiche) {

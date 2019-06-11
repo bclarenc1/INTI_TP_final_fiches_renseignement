@@ -10,6 +10,5 @@ public interface IserviceFrenseignement {
 	public Frenseignement getFrenseignement(int id);
 	public List<Frenseignement> listFrenseignements();
 	
-	public void attribuerFicheEnfant(int idFiche, int idEnf);
 	public boolean voirDemandeFiche(int idFiche, int idEta);
 }

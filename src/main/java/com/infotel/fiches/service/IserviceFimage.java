@@ -3,12 +3,14 @@ package com.infotel.fiches.service;
 import java.util.List;
 
 import com.infotel.fiches.metier.Fimage;
+import com.infotel.fiches.metier.Fprincipale;
 
 public interface IserviceFimage {
 
-	public void addFimage(Fimage f);
 	public void deleteFimage(int id);
 	public Fimage getFimage(int id);
 	public void editFimage(Fimage f);
 	public List<Fimage> listFimages();
+	
+	public void attribuerFicheEnfant(Fimage f, int idEnf);
 }
