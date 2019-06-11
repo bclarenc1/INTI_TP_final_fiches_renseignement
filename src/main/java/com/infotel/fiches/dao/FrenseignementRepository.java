@@ -8,7 +8,4 @@ import com.infotel.fiches.metier.Frenseignement;
 
 public interface FrenseignementRepository extends JpaRepository<Frenseignement, Integer> {
 	
-	@Query("update Frenseignement set enfant_id_enf=:a where frenseignement.id_fiche=:b")
-	public void attribuerFicheEnfant(@Param("b")int idFiche,@Param("a") int idEnf);
-
 }

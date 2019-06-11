@@ -59,7 +59,7 @@ public class FimageRestService implements IserviceFimage {
 	public void attribuerFicheEnfant(@RequestBody Fimage f, @PathVariable int id) {
 		fimageRepository.save(f);
 		int idFiche = f.getIdFiche();
-		frenseignementRepository.attribuerFicheEnfant(idFiche, id);
+		fimageRepository.attribuerFicheEnfant(idFiche, id);
 		
 	}
 

@@ -59,7 +59,7 @@ public class FprincipaleRestService implements IserviceFprincipale {
 	public void attribuerFicheEnfant(@RequestBody Fprincipale f, @PathVariable int id) {
 		fprincipaleRepository.save(f);
 		int idFiche = f.getIdFiche();
-		frenseignementRepository.attribuerFicheEnfant(idFiche, id);
+		fprincipaleRepository.attribuerFicheEnfant(idFiche, id);
 			
 	}
 

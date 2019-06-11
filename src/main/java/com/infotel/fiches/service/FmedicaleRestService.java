@@ -60,7 +60,7 @@ public class FmedicaleRestService implements IserviceFmedicale {
 	public void attribuerFicheEnfant(@RequestBody Fmedicale f,@PathVariable int id) {
 		fmedicaleRepository.save(f);
 		int idFiche = f.getIdFiche();
-		frenseignementRepository.attribuerFicheEnfant(idFiche, id);	
+		fmedicaleRepository.attribuerFicheEnfant(idFiche, id);	
 		
 	}
 	
