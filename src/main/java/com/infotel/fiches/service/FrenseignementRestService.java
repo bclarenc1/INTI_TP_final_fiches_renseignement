@@ -34,7 +34,7 @@ public class FrenseignementRestService implements IserviceFrenseignement {
 	public Frenseignement getFrenseignement(@PathVariable int id) {
 
 		return frenseignementRepository.getOne(id);
-	}
+	} 
 
 	@RequestMapping(value = "/frenseignements", method = RequestMethod.GET)			
 	@Override
