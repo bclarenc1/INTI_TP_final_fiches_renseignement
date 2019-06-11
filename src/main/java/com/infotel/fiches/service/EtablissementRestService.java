@@ -41,35 +41,30 @@ public class EtablissementRestService implements IserviceEtablissement {
 		return etablissementRepository.findAll();
 	}
 
-	@RequestMapping(value = "/etablissements", method = RequestMethod.DELETE)			
 	@Override
 	public void consulterFiches() {
 		// TODO Auto-generated method stub
 
 	}
 
-	@RequestMapping(value = "/etablissements/{id}", method = RequestMethod.DELETE)			
 	@Override
 	public void demanderAccesFiche(int idEta, int idFiche) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@RequestMapping(value = "/etablissements/{id}", method = RequestMethod.DELETE)			
 	@Override
 	public void attribuerEtaFiche(int idEta, int idFiche) {
 		// TODO Auto-generated method stub
 
 	}
-
-	@RequestMapping(value = "etablissements/{id}", method = RequestMethod.DELETE)			
+	
 	@Override
 	public void retirerEtaFiche(int idEta, int idFiche) {
 		// TODO Auto-generated method stub
 
 	}
-
-	@RequestMapping(value = "/etablissements/{id}", method = RequestMethod.DELETE)			
+		
 	@Override
 	public void senregistrer(int idEta, int idLogin) {
 		// TODO Auto-generated method stub

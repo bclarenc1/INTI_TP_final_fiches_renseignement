@@ -45,13 +45,13 @@ public class FrenseignementRestService implements IserviceFrenseignement {
 
 	@Override
 	public void attribuerFicheEnfant(int idFiche, int idEnf) {
-		// TODO Auto-generated method stub
+
 		
 	}
 
 	@Override
 	public boolean voirDemandeFiche(int idEta, int idFiche) {
-		// TODO Auto-generated method stub
+
 		return false;
 	}
 
