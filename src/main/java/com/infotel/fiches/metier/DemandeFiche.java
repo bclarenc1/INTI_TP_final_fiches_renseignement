@@ -1,6 +1,5 @@
 package com.infotel.fiches.metier;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,8 +38,5 @@ public class DemandeFiche {
 		super();
 		this.requete = requete;
 	}
-
-	
-	
 
 }

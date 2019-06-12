@@ -41,7 +41,7 @@ public class DemandeFicheRestService implements IserviceDemandeFiche {
 		return demandeFicheRepository.findAll();	
 	}
 
-	@RequestMapping(value = "/demandeFiches/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/demandeFiches/{idEta}", method = RequestMethod.POST)
 	@Override
 	public void creerDemandeFiche(@RequestBody DemandeFiche df, @PathVariable int idEta) {
 		df.setEtablissement(etablissementRepository.getOne(idEta));
