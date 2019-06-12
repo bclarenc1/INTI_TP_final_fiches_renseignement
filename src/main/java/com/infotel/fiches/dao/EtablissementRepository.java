@@ -12,17 +12,19 @@ public interface EtablissementRepository extends JpaRepository<Etablissement, In
 	
 	@Transactional
 	@Modifying(clearAutomatically = true)
-	@Query("select f from etablissement.frenseignements f")
+	@Query("select e.frenseignements from Etablissement e")
 	public void consulterFiches();
 	
 	@Transactional
 	@Modifying(clearAutomatically = true)
-	@Query("update Etablissement_Frenseignement set enfant_idEnf=:a  where idFiche=:b")
+//	@Query("update Etablissement_Frenseignement set enfant_idEnf=:a  where idFiche=:b")
+	@Query("select e.frenseignements from Etablissement e")
 	public void attribuerEtaFiche(@Param("b") int idEta, @Param("a") int idFiche);
 	
 	@Transactional
 	@Modifying(clearAutomatically = true)
-	@Query("delete Etablissement_Frenseignement set enfant_idEnf=:a where idFiche=:b")
+//	@Query("delete Etablissement_Frenseignement set enfant_idEnf=:a where idFiche=:b")
+	@Query("select e.frenseignements from Etablissement e")
 	public void attribuerFicheEnfant(@Param("b")int idFiche,@Param("a") int idEnf);
 
 }
