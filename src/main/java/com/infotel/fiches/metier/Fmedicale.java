@@ -1,4 +1,4 @@
-package com.infotel.fiches.metier;
+ package com.infotel.fiches.metier;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
