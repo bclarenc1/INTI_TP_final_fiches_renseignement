@@ -27,21 +27,14 @@ public class EtablissementRestService implements IserviceEtablissement {
 
 	@RequestMapping(value = "/etablissements/{id}", method = RequestMethod.GET)
 	@Override
-	public void getEtablissement(@PathVariable int id) {
-		etablissementRepository.getOne(id);
+	public Etablissement getEtablissement(@PathVariable int id) {
+		return etablissementRepository.getOne(id);
 	}
 
 	@RequestMapping(value = "/etablissements", method = RequestMethod.GET)
 	@Override
 	public List<Etablissement> listEtablissements() {
 		return etablissementRepository.findAll();
-	}
-
-	@RequestMapping(value = "/etablissements/demander/{idEta}/{idFiche}", method = RequestMethod.GET)
-	@Override
-	public void demanderAccesFiche(@PathVariable int idEta, @PathVariable int idFiche) {
-		etablissementRepository.demanderAccesFiche(idEta, idFiche);
-		// A completer si la query ne suffit pas
 	}
 
 	@RequestMapping(value = "/etablissements/attribuer/{idEta}/{idFiche}", method = RequestMethod.POST)
