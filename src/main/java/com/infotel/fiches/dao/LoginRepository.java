@@ -28,5 +28,5 @@ public interface LoginRepository extends JpaRepository<Login, Integer> {
 	@Transactional
 	@Modifying(clearAutomatically = true)
 	@Query("update Login set idEta=:a where idLogin=:b")
-	public void senregistrerEta(@Param("b")int idLogin,@Param("a") int idResp);
+	public void senregistrerEta(@Param("b")int idLogin,@Param("a") int idEta);
 }

@@ -64,7 +64,7 @@ public class LoginRestService implements IserviceLogin {
 
 	@Override
 	@RequestMapping(value="/logins/senregistrerEta/{idResp}",method={RequestMethod.POST,RequestMethod.GET})
-	public void senregistrerEta(int idEta, Login login) {
+	public void senregistrerEta(@PathVariable int idEta, @RequestBody Login login) {
 		
 		loginRepository.save(login);
 		int idLogin = login.getIdLogin();
@@ -73,7 +73,7 @@ public class LoginRestService implements IserviceLogin {
 
 	@Override
 	@RequestMapping(value="/logins/senregistrerResp/{idResp}",method={RequestMethod.POST,RequestMethod.GET})
-	public void senregistrerResp(int idResp, Login login) {
+	public void senregistrerResp(@PathVariable int idResp, @RequestBody Login login) {
 		
 		loginRepository.save(login);
 		int idLogin = login.getIdLogin();
