@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.infotel.fiches.dao.EnfantRepository;
+import com.infotel.fiches.dao.RespLegalRepository;
 import com.infotel.fiches.metier.Enfant;
 
 @RestController
@@ -20,11 +21,8 @@ public class EnfantRestService implements IserviceEnfant {
 	@Autowired
 	private EnfantRepository enfantRepository;
 	
-	@Override
-	@RequestMapping(value="/enfants",method=RequestMethod.POST)
-	public void addEnfant(@RequestBody Enfant e) {
-		enfantRepository.save(e);
-	}
+	@Autowired
+	private RespLegalRepository respLegalRepository;
 
 	@Override
 	@RequestMapping(value="/enfants/{id}",method=RequestMethod.DELETE)
@@ -54,6 +52,13 @@ public class EnfantRestService implements IserviceEnfant {
 	@RequestMapping(value="/enfants/modifRespLegal/{idEnf}/{idResp}")
 	public void modifierRespLegal(@PathVariable int idEnf, @PathVariable int idResp) {
 		enfantRepository.modifierRespLegal(idEnf, idResp);
+	}
+
+	@Override
+	@RequestMapping(value="/enfants/{idResp}",method=RequestMethod.POST)
+	public void attribuerEnfantResp(@RequestBody Enfant e, @PathVariable int idResp) {
+		e.setRespLegal(respLegalRepository.getOne(idResp));
+		enfantRepository.save(e);	
 	}
 
 }
