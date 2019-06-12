@@ -59,15 +59,17 @@ public class LoginRestService implements IserviceLogin {
 		return loginRepository.findAll();
 	}
 
-	@RequestMapping(value = "/logins/connexion", method = RequestMethod.GET)	
+	@RequestMapping(value = "/logins/connexion/{nickname}/{password}", method = RequestMethod.GET)	
 	@Override
-	public void seConnecter(@RequestBody String nickname, @RequestBody String password) {
+//	public List<Login> seConnecter(@RequestBody String nickname, @RequestBody String password) {
+	public List<Login> seConnecter(@PathVariable String nickname, @PathVariable String password) {
 		List<Login> logins = loginRepository.seConnecter(nickname, password);
-		if (logins == null) {
+		if (logins.isEmpty()) {
 			System.out.println("Connexion impossible, vérifiez login et mdp.");
 		} else {
 			System.out.println("Connexion établie");
 		}
+		return logins;
 	}
 
 	@Override

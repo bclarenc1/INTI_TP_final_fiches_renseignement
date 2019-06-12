@@ -12,7 +12,7 @@ public interface IserviceLogin {
 	public void editLogin(Login l);
 	public List<Login> listLogins();
 
-	public void seConnecter(String nickname, String password);
+	public List<Login> seConnecter(String nickname, String password);
 	
 	public void senregistrerEta(int idEta, Login login);
 	public void senregistrerResp(int idResp, Login login);
