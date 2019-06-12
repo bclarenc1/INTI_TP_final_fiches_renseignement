@@ -19,14 +19,4 @@ public interface LoginRepository extends JpaRepository<Login, Integer> {
 	@Modifying(clearAutomatically = true)
 	@Query("select log from Login log")
 	public List<Login> seConnecter(@Param("a") String nickname, @Param("b") String password);
-	
-	@Transactional
-	@Modifying(clearAutomatically = true)
-	@Query("update Login set idResp=:a where idLogin=:b")
-	public void senregistrerResp(@Param("b")int idLogin,@Param("a") int idResp);
-	
-	@Transactional
-	@Modifying(clearAutomatically = true)
-	@Query("update Login set idEta=:a where idLogin=:b")
-	public void senregistrerEta(@Param("b")int idLogin,@Param("a") int idEta);
 }

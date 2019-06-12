@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.infotel.fiches.dao.EtablissementRepository;
 import com.infotel.fiches.dao.LoginRepository;
+import com.infotel.fiches.dao.RespLegalRepository;
 import com.infotel.fiches.metier.Login;
 
 @CrossOrigin("*")
@@ -19,6 +21,12 @@ public class LoginRestService implements IserviceLogin {
 
 	@Autowired
 	private LoginRepository loginRepository;
+	
+	@Autowired
+	private EtablissementRepository etablissementRepository;
+	
+	@Autowired
+	private RespLegalRepository respLegalRepository;
 	
 	
 	@RequestMapping(value = "/logins", method = RequestMethod.POST)
@@ -63,21 +71,19 @@ public class LoginRestService implements IserviceLogin {
 	}
 
 	@Override
-	@RequestMapping(value="/logins/senregistrerEta/{idResp}",method={RequestMethod.POST,RequestMethod.GET})
+	@RequestMapping(value="/logins/senregistrerEta/{idResp}",method=RequestMethod.POST)
 	public void senregistrerEta(@PathVariable int idEta, @RequestBody Login login) {
-		
+		login.setEtablissement(etablissementRepository.getOne(idEta));
 		loginRepository.save(login);
-		int idLogin = login.getIdLogin();
-		loginRepository.senregistrerEta(idEta, idLogin);
+
 	}
 
 	@Override
-	@RequestMapping(value="/logins/senregistrerResp/{idResp}",method={RequestMethod.POST,RequestMethod.GET})
+	@RequestMapping(value="/logins/senregistrerResp/{idResp}",method=RequestMethod.POST)
 	public void senregistrerResp(@PathVariable int idResp, @RequestBody Login login) {
-		
+		login.setRespLegal(respLegalRepository.getOne(idResp));
 		loginRepository.save(login);
-		int idLogin = login.getIdLogin();
-		loginRepository.senregistrerResp(idResp, idLogin);
+
 	}
 
 }
