@@ -23,28 +23,23 @@ public class FrenseignementRestService implements IserviceFrenseignement {
 	@RequestMapping(value = "/frenseignements/{id}", method = RequestMethod.DELETE)			
 	@Override
 	public void deleteFrenseignement(@PathVariable int id) {
-	
 		frenseignementRepository.deleteById(id);
 	}
 
 	@RequestMapping(value = "/frenseignements/{id}", method = RequestMethod.GET)			
 	@Override
 	public Frenseignement getFrenseignement(@PathVariable int id) {
-
 		return frenseignementRepository.getOne(id);
 	} 
 
 	@RequestMapping(value = "/frenseignements", method = RequestMethod.GET)			
 	@Override
 	public List<Frenseignement> listFrenseignements() {
-		
 		return frenseignementRepository.findAll();
 	}
 	
-
 	@Override
 	public boolean voirDemandeFiche(int idEta, int idFiche) {
-
 		return false;
 	}
 

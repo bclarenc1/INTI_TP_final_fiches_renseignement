@@ -23,28 +23,24 @@ public class FprincipaleRestService implements IserviceFprincipale {
 	@RequestMapping(value = "/fprincipales/{id}", method = RequestMethod.DELETE)			
 	@Override
 	public void deleteFprincipale(@PathVariable int id) {
-	
 		fprincipaleRepository.deleteById(id);
 	}
 
 	@RequestMapping(value = "/fprincipales/{id}", method = RequestMethod.GET)			
 	@Override
 	public Fprincipale getFprincipale(@PathVariable int id) {
-
 		return fprincipaleRepository.getOne(id);
 	}
 
 	@RequestMapping(value = "/fprincipales", method = RequestMethod.PUT)			
 	@Override
 	public void editFprincipale(@RequestBody Fprincipale f) {
-		
 		fprincipaleRepository.save(f);
 	}
 
 	@RequestMapping(value = "/fprincipales", method = RequestMethod.GET)			
 	@Override
 	public List<Fprincipale> listFprincipales() {
-		
 		return fprincipaleRepository.findAll();
 	}
 	
