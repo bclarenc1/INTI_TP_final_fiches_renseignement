@@ -18,7 +18,6 @@ public class FrenseignementRestService implements IserviceFrenseignement {
 
 	@Autowired
 	private FrenseignementRepository frenseignementRepository;
-	
 
 	@RequestMapping(value = "/frenseignements/{id}", method = RequestMethod.DELETE)			
 	@Override
