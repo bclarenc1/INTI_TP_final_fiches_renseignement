@@ -34,6 +34,12 @@ public class DemandeFiche {
 	public String toString() {
 		return "DemandeFiche [requete=" + requete + "]";
 	}
+
+	public DemandeFiche(String requete) {
+		super();
+		this.requete = requete;
+	}
+
 	
 	
 
