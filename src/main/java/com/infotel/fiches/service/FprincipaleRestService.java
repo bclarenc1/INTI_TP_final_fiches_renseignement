@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.infotel.fiches.dao.FprincipaleRepository;
-import com.infotel.fiches.dao.FrenseignementRepository;
-import com.infotel.fiches.metier.Fimage;
 import com.infotel.fiches.metier.Fprincipale;
 
 @CrossOrigin("*")
@@ -21,10 +19,6 @@ public class FprincipaleRestService implements IserviceFprincipale {
 
 	@Autowired
 	private FprincipaleRepository fprincipaleRepository;
-	
-	@Autowired
-	private FrenseignementRepository frenseignementRepository;
-	
 	
 	@RequestMapping(value = "/fprincipales/{id}", method = RequestMethod.DELETE)			
 	@Override

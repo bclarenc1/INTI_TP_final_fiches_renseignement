@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.infotel.fiches.dao.CentreLoisirRepository;
-import com.infotel.fiches.dao.EcoleRepository;
 import com.infotel.fiches.metier.CentreLoisir;
-import com.infotel.fiches.metier.Ecole;
 
 @CrossOrigin("*")
 @RestController

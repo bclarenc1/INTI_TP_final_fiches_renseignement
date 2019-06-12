@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.infotel.fiches.dao.FrenseignementRepository;
 import com.infotel.fiches.dao.FvaccinationRepository;
-import com.infotel.fiches.metier.Fimage;
-import com.infotel.fiches.metier.Fmedicale;
 import com.infotel.fiches.metier.Fvaccination;
 
 @CrossOrigin("*")
@@ -22,9 +19,6 @@ public class FvaccinationRestService implements IserviceFvaccination {
 
 	@Autowired
 	private FvaccinationRepository fvaccinationRepository;
-	
-	@Autowired
-	private FrenseignementRepository frenseignementRepository;
 	
 
 	@RequestMapping(value = "/fvaccinations/{id}", method = RequestMethod.DELETE)			

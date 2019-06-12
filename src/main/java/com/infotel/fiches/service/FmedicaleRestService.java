@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.infotel.fiches.dao.FmedicaleRepository;
-import com.infotel.fiches.dao.FrenseignementRepository;
-import com.infotel.fiches.metier.Fimage;
 import com.infotel.fiches.metier.Fmedicale;
-import com.infotel.fiches.metier.Fprincipale;
 
 @CrossOrigin("*")
 @RestController
@@ -22,9 +19,6 @@ public class FmedicaleRestService implements IserviceFmedicale {
 
 	@Autowired
 	private FmedicaleRepository fmedicaleRepository;
-	
-	@Autowired
-	private FrenseignementRepository frenseignementRepository;
 	
 
 	@RequestMapping(value = "/fmedicales/{id}", method = RequestMethod.DELETE)			

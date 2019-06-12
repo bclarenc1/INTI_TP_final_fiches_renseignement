@@ -3,7 +3,6 @@ package com.infotel.fiches.service;
 import java.util.List;
 
 import com.infotel.fiches.metier.Fmedicale;
-import com.infotel.fiches.metier.Fprincipale;
 
 public interface IserviceFmedicale {
 
