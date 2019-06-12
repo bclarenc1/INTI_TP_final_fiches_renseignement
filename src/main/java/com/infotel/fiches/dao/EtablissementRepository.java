@@ -1,5 +1,7 @@
 package com.infotel.fiches.dao;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -9,22 +11,25 @@ import org.springframework.transaction.annotation.Transactional;
 import com.infotel.fiches.metier.Etablissement;
 
 public interface EtablissementRepository extends JpaRepository<Etablissement, Integer> {
+		
+	@Transactional
+	@Modifying(clearAutomatically = true)
+	@Query(value="select frenseignements_id_fiche from etablissement_frenseignements where etablissements_id_eta=:a", nativeQuery=true)
+	public List<Integer> consulterFiches(@Param("a") int idEta);
 	
 	@Transactional
 	@Modifying(clearAutomatically = true)
 	@Query("select e.frenseignements from Etablissement e")
-	public void consulterFiches();
+	public void demanderAccesFiche(@Param("a") int idEta, @Param("b") int idFiche);
 	
 	@Transactional
 	@Modifying(clearAutomatically = true)
-//	@Query("update Etablissement_Frenseignement set enfant_idEnf=:a  where idFiche=:b")
-	@Query("select e.frenseignements from Etablissement e")
-	public void attribuerEtaFiche(@Param("b") int idEta, @Param("a") int idFiche);
+	@Query(value="insert into etablissement_frenseignements (etablissements_id_eta, frenseignements_id_fiche) values (:a, :b)", nativeQuery=true)
+	public void attribuerEtaFiche(@Param("a") int idEta, @Param("b") int idFiche);
 	
 	@Transactional
 	@Modifying(clearAutomatically = true)
-//	@Query("delete Etablissement_Frenseignement set enfant_idEnf=:a where idFiche=:b")
-	@Query("select e.frenseignements from Etablissement e")
-	public void attribuerFicheEnfant(@Param("b")int idFiche,@Param("a") int idEnf);
+	@Query(value="delete from etablissement_frenseignements where etablissements_id_eta=:a and frenseignements_id_fiche=:b", nativeQuery=true)
+	public void retirerEtaFiche(@Param("a") int idEta, @Param("b") int idFiche);
 
 }

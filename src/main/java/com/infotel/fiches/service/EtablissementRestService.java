@@ -19,49 +19,48 @@ public class EtablissementRestService implements IserviceEtablissement {
 	@Autowired
 	private EtablissementRepository etablissementRepository;
 	
-	@RequestMapping(value = "/etablissements/{id}", method = RequestMethod.DELETE)			
+	@RequestMapping(value = "/etablissements/{id}", method = RequestMethod.DELETE)
 	@Override
-	public void deleteEtablissement(int id) {
-		
+	public void deleteEtablissement(@PathVariable int id) {
 		etablissementRepository.deleteById(id);
 	}
 
-	@RequestMapping(value = "/etablissements/{id}", method = RequestMethod.GET)			
+	@RequestMapping(value = "/etablissements/{id}", method = RequestMethod.GET)
 	@Override
 	public void getEtablissement(@PathVariable int id) {
-
 		etablissementRepository.getOne(id);
 	}
 
-	@RequestMapping(value = "/etablissements", method = RequestMethod.GET)			
+	@RequestMapping(value = "/etablissements", method = RequestMethod.GET)
 	@Override
 	public List<Etablissement> listEtablissements() {
-
 		return etablissementRepository.findAll();
 	}
 
+	@RequestMapping(value = "/etablissements/demander/{idEta}/{idFiche}", method = RequestMethod.GET)
 	@Override
-	public void consulterFiches() {
-		
-		etablissementRepository.consulterFiches();
+	public void demanderAccesFiche(@PathVariable int idEta, @PathVariable int idFiche) {
+		etablissementRepository.demanderAccesFiche(idEta, idFiche);
+		// A completer si la query ne suffit pas
 	}
 
+	@RequestMapping(value = "/etablissements/attribuer/{idEta}/{idFiche}", method = RequestMethod.POST)
 	@Override
-	public void demanderAccesFiche(int idEta, int idFiche) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void attribuerEtaFiche(int idEta, int idFiche) {
-		// TODO Auto-generated method stub
-
+	public void attribuerEtaFiche(@PathVariable int idEta, @PathVariable int idFiche) {
+		etablissementRepository.attribuerEtaFiche(idEta, idFiche);
 	}
 	
+	@RequestMapping(value = "/etablissements/retirer/{idEta}/{idFiche}", method = RequestMethod.POST)
 	@Override
-	public void retirerEtaFiche(int idEta, int idFiche) {
-		// TODO Auto-generated method stub
+	public void retirerEtaFiche(@PathVariable int idEta, @PathVariable int idFiche) {
+		etablissementRepository.retirerEtaFiche(idEta, idFiche);
+	}
 
+	@RequestMapping(value = "/etablissements/consulter/{idEta}", method = RequestMethod.GET)
+	@Override
+	public List<Integer> consulterFiches(@PathVariable int idEta) {
+		return etablissementRepository.consulterFiches(idEta);
 	}
 
 }
+
