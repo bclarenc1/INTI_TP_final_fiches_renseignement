@@ -13,4 +13,7 @@ public interface IserviceLogin {
 	public List<Login> listLogins();
 
 	public void seConnecter(String nickname, String password);
+	
+	public void senregistrerEta(int idEta, Login login);
+	public void senregistrerResp(int idResp, Login login);
 }

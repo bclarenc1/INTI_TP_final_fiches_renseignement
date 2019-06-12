@@ -14,5 +14,4 @@ public interface IserviceEtablissement {
 	public void demanderAccesFiche(int idEta, int idFiche);
 	public void attribuerEtaFiche(int idEta, int idFiche);
 	public void retirerEtaFiche(int idEta, int idFiche);
-	public void senregistrer(int idEta, int idLogin);
 }

@@ -34,7 +34,7 @@ public class RespLegal implements Serializable {
 	private String nomResp;
 	private String prenomResp;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "respLegal")
 	private Login login;
 	
 	@OneToMany(mappedBy="respLegal")

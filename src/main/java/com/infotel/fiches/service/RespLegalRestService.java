@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.infotel.fiches.dao.LoginRepository;
 import com.infotel.fiches.dao.RespLegalRepository;
-import com.infotel.fiches.metier.Login;
 import com.infotel.fiches.metier.RespLegal;
 
 @RestController
@@ -52,14 +51,6 @@ public class RespLegalRestService implements IserviceRespLegal {
 	@RequestMapping(value="/respLegals",method=RequestMethod.GET)
 	public List<RespLegal> listRespLegals() {
 		return respLegalRepository.findAll();
-	}
-
-	@Override
-	@RequestMapping(value="/respLegals/senregistrer/{idResp}",method={RequestMethod.POST,RequestMethod.GET})
-	public void senregistrer(@PathVariable int idResp, @RequestBody Login login) {
-		loginRepository.save(login);
-		int idLogin = login.getIdLogin();
-		respLegalRepository.senregistrer(idResp, idLogin);
 	}
 
 }

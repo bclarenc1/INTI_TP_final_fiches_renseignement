@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -41,7 +40,7 @@ public abstract class Etablissement implements Serializable {
 	private int idEta;
 	private String nomEta;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "etablissement")
 	private Login login;
 	
 	@ManyToMany

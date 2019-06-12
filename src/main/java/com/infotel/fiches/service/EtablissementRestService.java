@@ -63,11 +63,5 @@ public class EtablissementRestService implements IserviceEtablissement {
 		// TODO Auto-generated method stub
 
 	}
-		
-	@Override
-	public void senregistrer(int idEta, int idLogin) {
-		// TODO Auto-generated method stub
-
-	}
 
 }

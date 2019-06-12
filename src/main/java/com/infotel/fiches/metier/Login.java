@@ -29,10 +29,10 @@ public class Login implements Serializable {
 	private String nickname;
 	private String password;
 	
-	@OneToOne (mappedBy = "login")
+	@OneToOne
 	private RespLegal respLegal;
 	
-	@OneToOne (mappedBy = "login")
+	@OneToOne
 	private Etablissement etablissement;
 
 	@Override

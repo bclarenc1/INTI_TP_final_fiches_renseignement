@@ -62,4 +62,22 @@ public class LoginRestService implements IserviceLogin {
 		}
 	}
 
+	@Override
+	@RequestMapping(value="/logins/senregistrerEta/{idResp}",method={RequestMethod.POST,RequestMethod.GET})
+	public void senregistrerEta(int idEta, Login login) {
+		
+		loginRepository.save(login);
+		int idLogin = login.getIdLogin();
+		loginRepository.senregistrerEta(idEta, idLogin);
+	}
+
+	@Override
+	@RequestMapping(value="/logins/senregistrerResp/{idResp}",method={RequestMethod.POST,RequestMethod.GET})
+	public void senregistrerResp(int idResp, Login login) {
+		
+		loginRepository.save(login);
+		int idLogin = login.getIdLogin();
+		loginRepository.senregistrerResp(idResp, idLogin);
+	}
+
 }
