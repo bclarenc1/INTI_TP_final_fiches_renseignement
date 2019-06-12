@@ -52,8 +52,6 @@ public class FvaccinationRestService implements IserviceFvaccination {
 	public void attribuerFicheEnfant(@RequestBody Fvaccination f, @PathVariable int id) {
 		f.setEnfant(enfantRepository.getOne(id));
 		fvaccinationRepository.save(f);
-//		int idFiche = f.getIdFiche();
-//		fvaccinationRepository.attribuerFicheEnfant(idFiche, id);
 			
 	}
 
