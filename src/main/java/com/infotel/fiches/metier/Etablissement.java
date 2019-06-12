@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -48,6 +49,11 @@ public abstract class Etablissement implements Serializable {
 	@XmlTransient
 	private List<Frenseignement> frenseignements = new ArrayList<Frenseignement>();
 
+	@OneToMany(mappedBy="etablissement")
+	@JsonIgnore
+	@XmlTransient
+	private List<DemandeFiche> demandeFiches = new ArrayList<DemandeFiche>();
+	
 	@Override
 	public String toString() {
 		return "Etablissement [idEta=" + idEta + ", nomEta=" + nomEta + ", login=" + login + ", frenseignements="
