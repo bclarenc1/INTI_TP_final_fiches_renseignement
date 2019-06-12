@@ -19,7 +19,7 @@ public interface EtablissementRepository extends JpaRepository<Etablissement, In
 	
 	@Transactional
 	@Modifying(clearAutomatically = true)
-	@Query("select e.frenseignements from Etablissement e")
+	@Query(value="select e.frenseignements from etablissement e", nativeQuery=true)
 	public void demanderAccesFiche(@Param("a") int idEta, @Param("b") int idFiche);
 	
 	@Transactional

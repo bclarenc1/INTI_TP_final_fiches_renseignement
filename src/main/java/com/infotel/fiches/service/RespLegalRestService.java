@@ -20,8 +20,6 @@ public class RespLegalRestService implements IserviceRespLegal {
 
 	@Autowired
 	private RespLegalRepository respLegalRepository;
-	@Autowired
-	private LoginRepository loginRepository;
 	
 	@Override
 	@RequestMapping(value="/respLegals",method=RequestMethod.POST)
